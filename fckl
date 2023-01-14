@@ -1,0 +1,25 @@
+#!/usr/bin/python3
+text = input('Enter the text: ')
+
+alpha = {'H':'آ','a':'ش', 'b':'ذ', 'c':'ز', 'd':'ی', 'e':'ث', 'f':'ب', 'g':'ل', 'h':'ا', 'i':'ه', 'j':'ت', 
+         'k':'ن', 'l':'م', 'm':'پ', 'n':'د', 'o':'خ', 'p':'ح', 'q':'ض', 'r':'ق', 's':'س', 
+         't':'ف', 'u':'ع', 'v':'ر', 'w':'ص', 'x':'ط', 'y':'غ', 'z':'ظ', 'C':'ژ', ',':'و',
+         ';':'ک', "'":'گ', '\\':'پ', '[':'ج', ']':'چ'}
+
+key_list = list(alpha.keys())
+val_list = list(alpha.values())
+
+res = ''
+
+for i in text:
+    c = alpha.get(i)
+    if str(c) == 'None':
+        try:
+            a = list(alpha.keys())[list(alpha.values()).index(i)]
+            res += str(a)
+        except:
+            res += i
+    else:
+        res += str(alpha.get(i))
+
+print(res.replace('؛', '"'))
